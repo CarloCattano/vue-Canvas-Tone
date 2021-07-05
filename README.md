@@ -14,11 +14,14 @@ Depending on the wall position and other factors of the simplistic "physics engi
 git clone https://github.com/CarloCattano/vue-Canvas-Tone.git
 cd vue-Canvas-Tone.git
 npm install
+
 ```
 
 #### Compiles and hot-reloads for development locally 
 ```
 npm run serve
+
+will serve the page on localhost:8080
 ```
 
 #### Compiles and minifies for production and final deployment
