@@ -2,7 +2,8 @@
 
 #####    [demo](callme2.herokuapp.com)
 
-![screenshot](https://github.com/CarloCattano/vue-Canvas-Tone/blob/master/public/screenshot.JPG)
+<a href="#" ><img src="https://github.com/CarloCattano/vue-Canvas-Tone/raw/master/public/screenshot.JPG" align="center" height="200" width="256"  ></a>
+
 
 A very minimal app using HTML5 canvas and Tonejs 
 Bubbles instantiated from touch or mouse events , that sound once they with the walls 
