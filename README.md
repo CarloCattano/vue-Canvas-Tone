@@ -22,9 +22,10 @@ npm install
 npm run serve
 
 will serve the page on localhost:8080
+
 ```
 
-#### Compiles and minifies for production and final deployment
+##### Only production and final deployment
 ```
 npm run build
 ```
