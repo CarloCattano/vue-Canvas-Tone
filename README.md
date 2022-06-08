@@ -5,8 +5,8 @@
 <a href="https://callme2.herokuapp.com"><img src="https://github.com/CarloCattano/vue-Canvas-Tone/raw/master/public/screenshot.JPG" align="center" height="200" width="220"  ></a>
 
 
-A very minimal app using HTML5 canvas and Tonejs 
-Bubbles instantiated from touch or mouse events , that sound once they with the walls 
+A  minimal app using HTML5 canvas and Tonejs 
+Bubbles instantiated from touch or mouse events , that sound once they hit the walls 
 Depending on the wall position and other factors of the simplistic "physics engine "
 
 #### How to install 
