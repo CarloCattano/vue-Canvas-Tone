@@ -1,11 +1,27 @@
 <template>
   <div id="app">
+		<div id="myModal" @click="show = !show" class="modal"  v-if="show">
+			<div class="modal-content">
+				<h2>Magic Sound Bubbles®</h2>
+				<h3>An experiment using html5 canvas and the Audio API</h3>
+			<p>Click anywhere to generate a <b>Sound Bubble®</b>. To remove a bubble simply drag
+				your cursor while pressing down <br>
+			</p>
+			<p>To learn more about <b>creative coding</b> and animations I highly recommend seeing <b>Daniel Shiffman</b> content
+			and visiting <a href="https://p5js.org/">p5.js</a> for a good walkthrough. I've applied what I've learned there
+			in here but, without using the library, just with plain js with a bit of <i>Vue</i></p>
+			<br>
+			<p>The <i>source code for this site is on my <a href="https://github.com/CarloCattano/vue-Canvas-Tone">Github</a> </i></p>
+		</div>
+	</div>
     <button @click="mtoggle">{{num_draw_bub}}</button>
     <canvas width="100%" height="100%" @touchup="drag = false" @touchdown="drag = true"
-                                       @mousedown="drag = true" @mouseup="drag = false" 
-                                       @click="handleClick" @mousemove="moveit" @touchmove="t_move"></canvas>
-    </div>
+                @mousedown="drag = true" @mouseup="drag = false" @click="handleClick" 
+                @mousemove="moveit" @touchmove="t_move">
+    </canvas>
+  </div>
 </template>
+
 <script>
 import { Convolver } from "tone";
 import { Filter } from "tone"
@@ -21,6 +37,7 @@ export default {
     return {
       drag:     false,
       isLoaded: false,
+      show: true,
       canvX : window.innerWidth,
       canvY:  window.innerHeight,
       bub:"",
@@ -30,7 +47,6 @@ export default {
       panners:[],
     }
   },
-
   created() {
     this.Convolver = new Convolver(bottle).toMaster();
     this.Convolver.wet.value = 0.3;
@@ -47,7 +63,6 @@ export default {
     this.init();
     window.requestAnimationFrame(this.draw);
   },
-
   watch: {
     canvX: function(newS){
       this.canvas.width = newS
@@ -146,10 +161,8 @@ export default {
     },
     mtoggle(){
       this.num_draw_bub += 1
-      console.log("TOOOG")
-    }
+    },
   },
-
 }
 
 </script>
@@ -179,6 +192,108 @@ button {
   width: 12%;
   height: 8%;
   background: rgba(0,0,0,0);
+}
+/* The Modal (background) */
+.modal {
+  display: inline;
+  position: fixed; 
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  height : 40%;
+  font-size: 1.4rem;
+  animation: 1.5s slide-right ;
+  font: "Lucida Console" , monospace;    -webkit-font-smoothing: antialiased;
+  border-radius: 2rem;
+ 
+}
+@media only screen and (max-width:500px)  {
+  .modal {
+    display: inline; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    height : 50vh;
+    font-size: 14px;
+    animation: 1.5s slide-right ;
+    font: "Lucida Console" , monospace;    -webkit-font-smoothing: antialiased;
+    border-radius: 2rem;
+    }
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.some-animation-panel{
+  opacity: 0.1;
+  visibility: hidden;
+  transform: rotate(45deg)
+}
+.modal-vue-panel.modal-vue-show.some-animation-panel{
+  visibility: visible;
+  width:100%;
+  height:100%;
+}
+.slide-right {
+  -webkit-animation: slide-right 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: slide-right 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+@keyframes slide-right {
+  0% {
+    -webkit-transform: translateX(-400px);
+            transform: translateX(-400px);
+  }
+  100% {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+}
+@-webkit-keyframes slide-right {
+  0% {
+    -webkit-transform: translateX(-400px);
+            transform: translateX(-400px);
+  }
+  100% {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
 }
 
 </style>
