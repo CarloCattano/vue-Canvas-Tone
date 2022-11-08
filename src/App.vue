@@ -49,7 +49,7 @@ export default {
   },
   created() {
     this.Convolver = new Convolver(bottle).toMaster();
-    this.Convolver.wet.value = 0.3;
+    this.Convolver.wet.value = 0.7;
     this.pingPong = new PingPongDelay("16n", 0.2).connect(this.Convolver);
     this.filter = new Filter("1200","lowpass").connect(this.pingPong)
     this.filter.Q.value = 0.5
@@ -136,7 +136,7 @@ export default {
       }else if(this.bubbles.length >= 18 ){
           this.bubbles.shift()
           this.oscillators[this.oscillators.length-1].stop()
-          this.panners.  shift()
+          this.panners.shift()
           this.oscillators.shift()
       }
     },
@@ -213,7 +213,7 @@ button {
   padding: 20px;
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
-  height : 40%;
+  height : auto;
   font-size: 1.4rem;
   animation: 1.5s slide-right ;
   font: "Lucida Console" , monospace;    -webkit-font-smoothing: antialiased;

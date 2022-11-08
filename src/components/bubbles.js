@@ -6,7 +6,7 @@ export class Bubbles  {
         this.x = x
         this.size = 15
         this.y = y
-        this.accel = 1.3
+        this.accel = 1.2
         this.speed = s 
         this.w = w ,this.h = h
         this.velx = this.speed 
@@ -18,34 +18,34 @@ export class Bubbles  {
         let vol = -12
         let force = this.speed * this.accel
         if(this.accel > 0){
-            this.accel /= 1.0024
+            this.accel /= 1.0017
         }
-        if(this.accel > 3){
-            this.accel = 3
+        if(this.accel > 2.2 ){
+            this.accel = 2.2 
         }
         if(this.speed > 0.01)
         if(this.x >= this.w-10){
             this.velx = -force + Math.random()*ran
-            this.accel *=  1.15
+            this.accel *=  1.22
             this.source.volume.linearRampToValueAtTime(vol,0.08)
             this.source.volume.setTargetAtTime(-100,0.5,0.5)
         }else if(this.x <= 10){
             this.velx = force + Math.random()*ran
             this.source.volume.linearRampToValueAtTime(vol,0.08)
             this.source.volume.setTargetAtTime(-100,0.5,0.5)
-            this.accel *=  1.15
+            this.accel *=  1.22
         }
         if(this.y >= this.h-20){
             this.source.volume.linearRampToValueAtTime(vol,0.08)
             this.source.volume.setTargetAtTime(-100,0.5,0.5)
             this.vely = -force + Math.random()*ran
-            this.accel *=  1.13
+            this.accel *=  1.22
         }
         else if(this.y <= 10){
             this.source.volume.linearRampToValueAtTime(vol,0.08)
             this.vely = force + Math.random()*ran
             this.source.volume.setTargetAtTime(-100,0.5,0.5)
-            this.accel *= 1.3   
+            this.accel *= 1.22   
         }
         this.x += this.velx
         this.y += this.vely
@@ -62,7 +62,7 @@ export class Bubbles  {
         this.ctx.stroke();
     }
     play(){
-        let notes = [0,1200,-1200,0,1200,0,1200]
+        let notes = [0,1200,702,0,969,0,1200]
 
         if(this.x >= this.w-10){
             if(this.y >= this.h/2){
